@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/lib/Form';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import CreateEvent from './CreateEvent';
 import ViewEvents from './ViewEvents';
+import NavBar from './Nav';
+import FunButton from './FunButton';
 
 let fieldValues = 
 {
@@ -13,20 +15,64 @@ let fieldValues =
 	eventLocation: null,
 	eventTime: null,
 	eventDescription: null,
+	UpVotes: 0,
+	downVotes: 0
 }
 
 let eventList = [
 {
-	key: 1,
+	key: 2,
 	eventName: 'Gucci',
-	eventLocation: 'House',
+	eventLocation: 'eHouseHouse',
 	eventTime: 'Night',
-	eventDescription: 'swag'
+	eventDescription: 'swagan[nf[onan a[nv a[onfv an',
+	upVotes: 0,
+	downVotes: 0
+},
+{
+	key: 3,
+	eventName: 'Gucci',
+	eventLocation: 'eHouseHouse',
+	eventTime: 'Night',
+	eventDescription: 'swagan[nf[onan a[nv a[onfv an',
+	upVotes: 0,
+	downVotes: 0
+},
+{
+	key: 4,
+	eventName: 'Gucci',
+	eventLocation: 'eHouseHouse',
+	eventTime: 'Night',
+	eventDescription: 'swagan[nf[onan a[nv a[onfv an',
+	upVotes: 0,
+	downVotes: 0
 }]
 
 var App = React.createClass({
 	getInitialState: function() {
 		return { createEvent: false}
+	},
+
+	upVote: function(key) {
+		for (var i in eventList) {
+			if (eventList[i].key == key) {
+				eventList[i].upVotes = eventList[i].upVotes + 1;
+				this.setState({eventList: eventList});
+				break;
+			}
+		}
+		
+	},
+
+	downVote: function(key) {
+		for (var i in eventList) {
+			if (eventList[i].key == key) {
+				eventList[i].downVotes = eventList[i].downVotes + 1;
+				this.setState({eventList: eventList});
+				break;
+			}
+		}
+		
 	},
 
 	edit: function() {
@@ -49,11 +95,27 @@ var App = React.createClass({
 			<div>
 			{
 				this.state.createEvent ?
-				<CreateEvent fieldValues={fieldValues} eventList={eventList} edit={this.edit.bind(this, null)}/>
+				<div>
+				<NavBar />
+				<CreateEvent fieldValues={fieldValues}
+							 eventList={eventList} 
+							 edit={this.edit.bind(this, null)}
+							 upVote={this.upVote.bind(this, null)}
+							 downVote={this.downVote.bind(this, null)}/>
+				</div>
 				:
+				<div>
+				<NavBar />
+
 				<ViewEvents  eventList={eventList}
 							 edit={this.edit.bind(this, null)}
-							 deleteEvent={this.deleteEvent} />//bind methods allows to call parent function from child
+							 deleteEvent={this.deleteEvent}
+							 upVote={this.upVote}
+							 downVote={this.downVote} />
+							 <FunButton/>
+							 
+				</div>
+
 			}
 			</div>
 		);

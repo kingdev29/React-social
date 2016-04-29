@@ -7,8 +7,21 @@ import FormControl from 'react-bootstrap/lib/FormControl';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
+import Card from './Card';
 
 var EventDisplay = React.createClass({
+
+	//getInitialState: function() {
+	//	return { showDetails: false};
+	//},
+
+	upVote: function(key) {
+		this.props.upVote(key)
+	},
+
+	downVote: function(key) {
+		this.props.downVote(key)
+	},
 
 	deleteEvent: function(key){
 		console.log(key);
@@ -16,34 +29,25 @@ var EventDisplay = React.createClass({
 	},
 
 	render: function() {
-		
-			var eventList = this.props.eventList.map((event) => {
+		let eventList;
+			eventList = this.props.eventList.map((event) => {
 				return <div key={event.key}>
-					<Row>
-						<Col xs={6} md={4}></Col>
-						<Col xs={6} md={4}>
-							<div className="list-items">
-								<Thumbnail className="thumbnail">
-							
-							<p><span className="title">{event.eventName}</span></p>
-							<p><em>{event.eventLocation}</em></p>
-							<p><em>{event.eventTime}</em></p>
-							<p><em>{event.eventDescription}</em></p>
-							<Button className="btn" onClick={this.deleteEvent.bind(this, event.key)}>Delete</Button>
-							
-							</Thumbnail>
-							</div>
-						</Col>
-						<Col xs={6} xsOffset={6}></Col>
-					</Row>
+					<Card event={event}
+							deleteEvent={this.deleteEvent}
+							downVote={this.downVote}
+							upVote={this.upVote} />
+
 				</div>
 				});
+
+			
 		return (
 			<div className="container">
-
-				{eventList}				
+				<div className="list">
+					{eventList}
+				</div>	
 			</div>
-		)
+		);
 	}
 });
 

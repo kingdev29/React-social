@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Button from 'react-bootstrap/lib/Button';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Form from 'react-bootstrap/lib/Form';
-import FormControl from 'react-bootstrap/lib/FormControl';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import EventDisplay from './EventDisplay';
 
 var HelloReact = React.createClass({

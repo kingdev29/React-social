@@ -1,9 +1,18 @@
-import React from 'react';
+import React from 'react'; 
 import ReactDom from 'react-dom';
 import Button from 'react-bootstrap/lib/Button';
 import EventDisplay from './EventDisplay';
 
+
 var ViewEvent = React.createClass({
+
+	downVote: function(key) {
+		this.props.downVote(key);
+	},
+
+	upVote: function(key) {
+		this.props.upVote(key)
+	},
 
 	edit: function() {
 		this.setState(
@@ -15,7 +24,6 @@ var ViewEvent = React.createClass({
 	},
 
 	deleteEvent: function(key) {
-		console.log('passed key to View')
 		this.props.deleteEvent(key);
 	},
 
@@ -25,7 +33,11 @@ var ViewEvent = React.createClass({
 				<div className="container">
 					<Button onClick={this.edit}>Create Event</Button>
 					<br />
-					<EventDisplay eventList={this.props.eventList} deleteEvent={this.deleteEvent}/>
+
+					<EventDisplay eventList={this.props.eventList}
+								 deleteEvent={this.deleteEvent}
+								 downVote={this.downVote}
+								 upVote={this.upVote}/>
 				</div>
 			</div>
 			);
