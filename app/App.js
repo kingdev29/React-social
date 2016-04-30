@@ -9,7 +9,7 @@ import ViewEvents from './ViewEvents';
 import NavBar from './Nav';
 import FunButton from './FunButton';
 import CommentBox from './CommentBox';
-import SearchBar from './SearchBar';
+import Geo from './Geo';
 
 let fieldValues = 
 {
@@ -24,10 +24,10 @@ let fieldValues =
 let eventList = [
 {
 	key: 2,
-	eventName: 'Gucci',
-	eventLocation: 'eHouseHouse',
-	eventTime: 'Night',
-	eventDescription: 'swagan[nf[onan a[nv a[onfv an',
+	eventName: 'Pool Party at the $wag Frat',
+	eventLocation: '2938 East Avenue ',
+	eventTime: '10pm-1am',
+	eventDescription: 'swagan[nf[onan a[nv aa;kjfvb ajfjvb a;kjfvb afva afvaf[ a[fvaf  a[fvubf [afuv  afuiuva[onfv an',
 	upVotes: 0,
 	downVotes: 0
 },
@@ -42,7 +42,7 @@ let eventList = [
 },
 {
 	key: 4,
-	eventName: 'Gucci',
+	eventName: 'Swag',
 	eventLocation: 'eHouseHouse',
 	eventTime: 'Night',
 	eventDescription: 'swagan[nf[onan a[nv a[onfv an',
@@ -69,7 +69,7 @@ var App = React.createClass({
 	downVote: function(key) {
 		for (var i in eventList) {
 			if (eventList[i].key == key) {
-				eventList[i].downVotes = eventList[i].downVotes + 1;
+				eventList[i].upVotes = eventList[i].upVotes - 1;
 				this.setState({eventList: eventList});
 				break;
 			}
@@ -114,10 +114,7 @@ var App = React.createClass({
 							 deleteEvent={this.deleteEvent}
 							 upVote={this.upVote}
 							 downVote={this.downVote} />
-				<SearchBar
-
-				/>
-							 
+				<Geo/>		 
 				</div>
 
 			}

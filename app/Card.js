@@ -33,19 +33,21 @@ var Card = React.createClass({
 		let card;
 			card=(
 			<div className="card">			
+			<div className="card_details">
+			
+			<h2 className="title">{this.props.event.eventName}</h2><br />
+			<p className="info">{this.props.event.eventLocation}
+			{this.props.event.eventTime}</p>
+			
 			<div className="card_title" onClick={
 					()=>this.setState({showDetails: !this.state.showDetails})
-					}></div>
-			<div className="card_details">
-			{this.props.event.eventLocation}
-			{this.props.event.eventTime}
-			<br />
+					}><h5 className="description">Description:</h5></div>
+			
 			{description}
 			</div>
-			<Button className="btn" onClick={this.deleteEvent.bind(this, this.props.event.key)}>Delete</Button>
-			<br />
-			<Button className="btn" onClick={this.upVote.bind(this, this.props.event.key)}>Up Vote</Button>{this.props.event.upVotes}
-			<Button className="btn" onClick={this.downVote.bind(this, this.props.event.key)}>Down Vote</Button>{this.props.event.downVotes}		
+			<Button className="btn" onClick={this.deleteEvent.bind(this, this.props.event.key)}><span className="glyphicon glyphicon-trash"></span></Button>
+			<Button className="btn" onClick={this.upVote.bind(this, this.props.event.key)}><span className="glyphicon glyphicon-thumbs-up"></span></Button>
+			<Button className="btn" onClick={this.downVote.bind(this, this.props.event.key)}><span className="glyphicon glyphicon-thumbs-down"></span></Button>{this.props.event.upVotes}		
 
 			</div>
 						

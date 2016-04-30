@@ -4,20 +4,24 @@ var SearchBar = React.createClass({
 
 	handleChange: function() {
 		this.props.onUserInput(
-			this.refs.filterTextInput
+			this.refs.filterTextInput.value
 			);
 	},
 
 	render: function() {
 		return (
-			<form>
+				<div className="box">
+					<div className="container-1">
+					<span className="icon"><i className="fa fa-search"></i></span>
 				<input 
+					id="search"
 					type="text" 
-					placeholder="Search..." 
+					placeholder=" Search..." 
 					value={this.props.filterText}
 					ref="filterTextInput"
 					onChange={this.handleChange} />
-			</form>
+				</div>
+				</div>
 		);
 	}
 });

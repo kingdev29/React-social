@@ -42,7 +42,7 @@ var EventDisplay = React.createClass({
 
 			
 		return (
-			<div className="container">
+			<div className="containers">
 				<div className="list">
 					{eventList}
 				</div>	

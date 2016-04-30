@@ -49,16 +49,16 @@ var HelloReact = React.createClass({
 				<div className="row">
 					<div className="col-md-4"></div>
 					<div className="col-md-4 col-xs-12">
-					
-						<Form >
-							
+					<h2>Create Event</h2>
+						<form>
+							<div className="box">
 							<input type='text' ref='eventLocation' defaultValue={this.props.fieldValues.eventLocation} className={'form-control'} /><br />
 							<input type='text' ref='eventDescription' defaultValue={this.props.fieldValues.eventDescription} className={'form-control'} /><br />
       						<input type='text' ref='eventTime' defaultValue={this.props.fieldValues.eventTime} className={'form-control'} /><br />
 							<input type='text' ref='eventName' defaultValue={this.props.fieldValues.eventName} className={'form-control'} /><br />
-
+							</div>
 							<Button onClick={this.update}>Update</Button>
-						</Form>
+						</form>
 						<Button onClick={this.edit}>View Events</Button>
 					</div>
 					<div className="col-md-4"></div>
