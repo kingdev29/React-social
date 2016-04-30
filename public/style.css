@@ -62,10 +62,6 @@ h1 {
 .container-fluid {
     background-color: #2980b9;
 }
-
-.navbar {
-    font-family: Montserrat, sans-serif;
-}
 .btn:hover, .btn:focus {
     border: 1px solid #333;
     background-color: #fff;
@@ -85,7 +81,7 @@ h1 {
 
 /* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand { 
-    color: #d5d5d5 !important;
+    color: #fff !important;
 }
 
 /* On hover, the links will turn white */
@@ -209,4 +205,10 @@ h1 {
     border: 2px solid #e5e5df;
     border-radius: 3px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+.create-title{
+    font-weight: bold;
+    display: inline-block;
+    font-family: Lato;
+    color: #2980b9;
 }

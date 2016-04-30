@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import Button from 'react-bootstrap/lib/Button';
 import EventDisplay from './EventDisplay';
 import SearchBar from './SearchBar';
+import Maps from './Maps';
 
 var ViewEvent = React.createClass({
 
@@ -67,6 +68,7 @@ var ViewEvent = React.createClass({
 								 downVote={this.downVote}
 								 upVote={this.upVote}
 								 filterText={this.state.filterText}/>
+					<Maps/>
 				
 					</div>
 				</div>

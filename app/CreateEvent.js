@@ -35,31 +35,33 @@ var HelloReact = React.createClass({
 
 	},
 
+	locationInputHandle: function() {
+		console.log("onFocus Function")
+	},
+
 	render: function() {
 
 		return (
 			<div>
-
-				<EventDisplay eventList={this.props.eventList}/> 
-			
-			
 				<div className='inputDisplay'>
 	
-			<div className="container-fluid">
-				<div className="row">
+			<div className="container">
+				<div className="col">
 					<div className="col-md-4"></div>
 					<div className="col-md-4 col-xs-12">
-					<h2>Create Event</h2>
+					<div className="box">
+					<h2 className="create-title">Create Event</h2>
 						<form>
-							<div className="box">
-							<input type='text' ref='eventLocation' defaultValue={this.props.fieldValues.eventLocation} className={'form-control'} /><br />
-							<input type='text' ref='eventDescription' defaultValue={this.props.fieldValues.eventDescription} className={'form-control'} /><br />
-      						<input type='text' ref='eventTime' defaultValue={this.props.fieldValues.eventTime} className={'form-control'} /><br />
-							<input type='text' ref='eventName' defaultValue={this.props.fieldValues.eventName} className={'form-control'} /><br />
-							</div>
+							
+							<input type='text' ref='eventName' defaultValue={this.props.fieldValues.eventName} placeholder="Event Name" className={'form-control'} /><br />
+							<input type='text' onFocus={this.locationInputHandle} ref='eventLocation' defaultValue={this.props.fieldValues.eventLocation} className={'form-control'} placeholder="Location"/><br />
+							<input type='time' ref='eventTime' defaultValue={this.props.fieldValues.eventTime} className={'form-control'} placeholder="Time"/><br />
+							<textarea type='text' ref='eventDescription' defaultValue={this.props.fieldValues.eventDescription} className={'form-control'} placeholder="Description"/><br />
 							<Button onClick={this.update}>Update</Button>
+							<Button onClick={this.edit}>View Events</Button>
+							
 						</form>
-						<Button onClick={this.edit}>View Events</Button>
+						</div>
 					</div>
 					<div className="col-md-4"></div>
 					
