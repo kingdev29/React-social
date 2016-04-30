@@ -8,6 +8,8 @@ import CreateEvent from './CreateEvent';
 import ViewEvents from './ViewEvents';
 import NavBar from './Nav';
 import FunButton from './FunButton';
+import CommentBox from './CommentBox';
+import SearchBar from './SearchBar';
 
 let fieldValues = 
 {
@@ -112,7 +114,9 @@ var App = React.createClass({
 							 deleteEvent={this.deleteEvent}
 							 upVote={this.upVote}
 							 downVote={this.downVote} />
-							 <FunButton/>
+				<SearchBar
+
+				/>
 							 
 				</div>
 

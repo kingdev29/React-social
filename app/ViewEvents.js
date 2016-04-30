@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Button from 'react-bootstrap/lib/Button';
 import EventDisplay from './EventDisplay';
-
+import SearchBar from './SearchBar';
 
 var ViewEvent = React.createClass({
 
@@ -33,11 +33,15 @@ var ViewEvent = React.createClass({
 				<div className="container">
 					<Button onClick={this.edit}>Create Event</Button>
 					<br />
+					<SearchBar 
+						filterText={this.state.filterText}
+						onUserInput={this.handleUserInput}/>
 
 					<EventDisplay eventList={this.props.eventList}
 								 deleteEvent={this.deleteEvent}
 								 downVote={this.downVote}
 								 upVote={this.upVote}/>
+					
 				</div>
 			</div>
 			);

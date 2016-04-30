@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
-var CommentBox = React.createClass({
+var CommentList = React.createClass({
 	render: function() {
+		var commentNodes = this.props.data.map(function(comment) {
+			return (
+				<Comment author={comment.author} key={comment.id}>
+				{comment.text}
+				</Comment>
+			);
+		});
 		return (
 			<div className="commentList">
-				<h1>Comments</h1>
-				<CommentList = data={this.props.data} />
-				<CommentForm />
+				{commentNodes}
 			</div>
 		);
 	}
 });
 
-export default CommentBox;
+export default CommentList;
