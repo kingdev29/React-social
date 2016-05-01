@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/lib/Button';
 import EventDisplay from './EventDisplay';
 import SearchBar from './SearchBar';
 import Maps from './Maps';
+import GoogleMaps from './GoogleMaps';
 
 var ViewEvent = React.createClass({
 
@@ -14,7 +15,6 @@ var ViewEvent = React.createClass({
 	},
 
 	handleUserInput: function(filterText) {
-		console.log(filterText)
 		this.setState({
 			filterText: filterText
 		});
@@ -48,7 +48,6 @@ var ViewEvent = React.createClass({
         return;
       }
       rows.push(event)
-      console.log(rows)
       //rows.push(<ProductRow product={product} key={product.name} />);
     }.bind(this));
 
@@ -57,6 +56,7 @@ var ViewEvent = React.createClass({
 			<div>
 				<div className="container">
 					<div className="col">
+					<GoogleMaps/>
 					<Button onClick={this.edit}>Create Event</Button>
 					<br />
 					<SearchBar 
@@ -68,8 +68,7 @@ var ViewEvent = React.createClass({
 								 downVote={this.downVote}
 								 upVote={this.upVote}
 								 filterText={this.state.filterText}/>
-					<Maps/>
-				
+					
 					</div>
 				</div>
 			</div>

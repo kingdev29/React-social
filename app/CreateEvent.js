@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/lib/Form';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import EventDisplay from './EventDisplay';
+import Maps from './Maps';
 
 var HelloReact = React.createClass({
 
@@ -14,6 +15,12 @@ var HelloReact = React.createClass({
 
 	update: function(e) {
 		e.preventDefault()
+		let geocoder = new google.maps.Geocoder;
+		geocoder.geocode({'placeId': String(this.refs.eventLocation)}, function(results, status) {
+			if (status === google.maps.GeocoderStatus.OK) {
+				console.log(results)
+			}
+		});
 		let data = {
 			eventName: this.refs.eventName.value,
 			eventLocation: this.refs.eventLocation.value,
@@ -54,7 +61,8 @@ var HelloReact = React.createClass({
 						<form>
 							
 							<input type='text' ref='eventName' defaultValue={this.props.fieldValues.eventName} placeholder="Event Name" className={'form-control'} /><br />
-							<input type='text' onFocus={this.locationInputHandle} ref='eventLocation' defaultValue={this.props.fieldValues.eventLocation} className={'form-control'} placeholder="Location"/><br />
+							<Maps/>
+							<input type='text' onFocus={this.locationInputHandle} ref='eventLocation' defaultValue={this.props.fieldValues.eventLocation} className='form-control' placeholder="Location"/><br />
 							<input type='time' ref='eventTime' defaultValue={this.props.fieldValues.eventTime} className={'form-control'} placeholder="Time"/><br />
 							<textarea type='text' ref='eventDescription' defaultValue={this.props.fieldValues.eventDescription} className={'form-control'} placeholder="Description"/><br />
 							<Button onClick={this.update}>Update</Button>

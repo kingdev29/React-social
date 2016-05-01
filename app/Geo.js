@@ -1,9 +1,13 @@
 var React = require('react');
 
+
+let geocoder = new google.maps.Geocoder;
+
 var ReactGeoLocation = React.createClass({
   
   _handleGeoPosition: function(position) {
     this.props.getCoords(position.coords);
+    console.log(position)
   },
 
   _handleClick: function(e) {
@@ -27,6 +31,12 @@ var Geo = React.createClass({
       lat: coords.latitude,
       lng: coords.longitude,
     });
+    var latlng = {lat: parseFloat(coords.latitude), lng: parseFloat(coords.longitude)}
+    geocoder.geocode({'location': latlng}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+          console.log(results)
+        }
+      });
   },
 
   getInitialState: function() {

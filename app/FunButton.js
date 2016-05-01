@@ -12,13 +12,13 @@ import {Motion, spring} from 'react-motion';
 // Value of 1 degree in radians
 const DEG_TO_RAD = 0.0174533;
 // Diameter of the main button in pixels
-const MAIN_BUTTON_DIAM = 90;
-const CHILD_BUTTON_DIAM = 50;
+const MAIN_BUTTON_DIAM = 60;
+const CHILD_BUTTON_DIAM = 30;
 // The number of child buttons that fly out from the main button
 const NUM_CHILDREN = 5;
 // Hard coded position values of the mainButton
-const M_X = 490;
-const M_Y = 350;
+const M_X = 500;
+const M_Y = 50;
 
 // How far away from the main button does the child buttons go
 const FLY_OUT_RADIUS = 120,

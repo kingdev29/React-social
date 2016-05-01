@@ -36,6 +36,9 @@ var Card = React.createClass({
 			<div className="card_details">
 			
 			<h2 className="title">{this.props.event.eventName}</h2><br />
+			<div className="fun-button">
+			
+			</div>
 			<p className="info">{this.props.event.eventLocation}
 			{this.props.event.eventTime}</p>
 			

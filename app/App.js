@@ -11,6 +11,24 @@ import FunButton from './FunButton';
 import CommentBox from './CommentBox';
 import Geo from './Geo';
 
+//funciton to convert address to coordinates
+
+var geocoder;
+var map;
+function initialize() {
+	geocoder = new google.maps.Geocoder();
+	var latlng = new google.maps.LatLng(-34.397, 150.644);
+	var mapOptions = {
+		zoom: 8,
+		center: latlng
+	}
+
+	map = google.maps.Map()
+	console.log(map)
+}
+
+
+//end of geocoder
 let fieldValues = 
 {
 	eventName: null,
