@@ -15,16 +15,16 @@ const DEG_TO_RAD = 0.0174533;
 const MAIN_BUTTON_DIAM = 60;
 const CHILD_BUTTON_DIAM = 30;
 // The number of child buttons that fly out from the main button
-const NUM_CHILDREN = 5;
+const NUM_CHILDREN = 3;
 // Hard coded position values of the mainButton
-const M_X = 500;
-const M_Y = 50;
+const M_X = -35;
+const M_Y = 35;
 
 // How far away from the main button does the child buttons go
-const FLY_OUT_RADIUS = 120,
-	SEPARATION_ANGLE = 40, //degrees
+const FLY_OUT_RADIUS = 70,
+	SEPARATION_ANGLE = 33, //degrees
 	FAN_ANGLE = (NUM_CHILDREN - 1) * SEPARATION_ANGLE, //degrees
-	BASE_ANGLE = ((180 - FAN_ANGLE)/2); // degrees
+	BASE_ANGLE = ((180 - FAN_ANGLE)/2) -30; // degrees
 
 // Utility functions 
 
@@ -116,6 +116,7 @@ class FunButton extends React.Component {
 					className="main-button"
 					style={this.mainButtonStyles()}
 					onClick={this.openMenu}/>
+					
 			</div>
 		);
 	}	
