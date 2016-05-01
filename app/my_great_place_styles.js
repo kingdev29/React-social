@@ -10,14 +10,15 @@ const greatPlaceStyle = {
   left: -K_WIDTH / 2,
   top: -K_HEIGHT / 2,
 
-  border: '5px solid #f44336',
+  border: '5px solid #2980b9',
   borderRadius: K_HEIGHT,
-  backgroundColor: 'white',
+  backgroundColor: '#efefef',
   textAlign: 'center',
-  color: '#3f51b5',
+  color: 'black',
   fontSize: 16,
   fontWeight: 'bold',
-  padding: 4
+  padding: 4,
+  font: 'Lato'
 };
 
 export {greatPlaceStyle};

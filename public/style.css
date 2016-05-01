@@ -10,7 +10,8 @@ html, body, #app {
 }
 .google-mapping {
   display: block;
- 
+ margin-right: auto;
+ margin-left: auto;
   width: 500px;
   height: 500px;
 }
