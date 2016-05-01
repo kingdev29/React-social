@@ -48,9 +48,51 @@ const latLng2Obj = (latLng) => isPlainObject(latLng)
     : {lat: latLng[0], lng: latLng[1]};
 
 export default class GoogleMap extends Component {
+  static propTypes = {
+    apiKey: PropTypes.string,
+    bootstrapURLKeys: PropTypes.any,
 
-   getDefaultProps() {
-      return    {
+    defaultCenter: React.PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.shape({
+        lat: PropTypes.number,
+        lng: PropTypes.number,
+      }),
+    ]),
+    center: React.PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.shape({
+        lat: PropTypes.number,
+        lng: PropTypes.number,
+      }),
+    ]),
+    defaultZoom: PropTypes.number,
+    zoom: PropTypes.number,
+    onBoundsChange: PropTypes.func,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    onChildClick: PropTypes.func,
+    onChildMouseDown: PropTypes.func,
+    onChildMouseUp: PropTypes.func,
+    onChildMouseMove: PropTypes.func,
+    onChildMouseEnter: PropTypes.func,
+    onChildMouseLeave: PropTypes.func,
+    onZoomAnimationStart: PropTypes.func,
+    onZoomAnimationEnd: PropTypes.func,
+    onDrag: PropTypes.func,
+    options: PropTypes.any,
+    distanceToMouse: PropTypes.func,
+    hoverDistance: PropTypes.number,
+    debounced: PropTypes.bool,
+    margin: PropTypes.array,
+    googleMapLoader: PropTypes.any,
+    onGoogleApiLoaded: PropTypes.func,
+    yesIWantToUseGoogleMapApiInternals: PropTypes.bool,
+    draggable: PropTypes.bool,
+    style: PropTypes.any,
+  };
+
+  static defaultProps = {
     distanceToMouse(pt, mousePos /* , markerProps */) {
       return Math.sqrt(
         (pt.x - mousePos.x) * (pt.x - mousePos.x) + (pt.y - mousePos.y) * (pt.y - mousePos.y)
@@ -70,7 +112,7 @@ export default class GoogleMap extends Component {
     },
   };
 
-  googleMapLoader = googleMapLoader; // eslint-disable-line
+  static googleMapLoader = googleMapLoader; // eslint-disable-line
 
   constructor(props) {
     super(props);
@@ -829,46 +871,3 @@ export default class GoogleMap extends Component {
     );
   }
 }
-GoogleMap.propTypes = {
-    apiKey: PropTypes.string,
-    bootstrapURLKeys: PropTypes.any,
-
-    defaultCenter: React.PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.shape({
-        lat: PropTypes.number,
-        lng: PropTypes.number,
-      }),
-    ]),
-    center: React.PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.shape({
-        lat: PropTypes.number,
-        lng: PropTypes.number,
-      }),
-    ]),
-    defaultZoom: PropTypes.number,
-    zoom: PropTypes.number,
-    onBoundsChange: PropTypes.func,
-    onChange: PropTypes.func,
-    onClick: PropTypes.func,
-    onChildClick: PropTypes.func,
-    onChildMouseDown: PropTypes.func,
-    onChildMouseUp: PropTypes.func,
-    onChildMouseMove: PropTypes.func,
-    onChildMouseEnter: PropTypes.func,
-    onChildMouseLeave: PropTypes.func,
-    onZoomAnimationStart: PropTypes.func,
-    onZoomAnimationEnd: PropTypes.func,
-    onDrag: PropTypes.func,
-    options: PropTypes.any,
-    distanceToMouse: PropTypes.func,
-    hoverDistance: PropTypes.number,
-    debounced: PropTypes.bool,
-    margin: PropTypes.array,
-    googleMapLoader: PropTypes.any,
-    onGoogleApiLoaded: PropTypes.func,
-    yesIWantToUseGoogleMapApiInternals: PropTypes.bool,
-    draggable: PropTypes.bool,
-    style: PropTypes.any,
-  };

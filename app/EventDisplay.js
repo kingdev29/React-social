@@ -8,6 +8,8 @@ import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Card from './Card';
+import GoogleMaps from './GoogleMaps';
+
 
 var EventDisplay = React.createClass({
 
@@ -44,7 +46,11 @@ var EventDisplay = React.createClass({
 		return (
 			<div className="containers">
 				<div className="list">
+				<div className="big">
+				
+				</div>
 					{eventList}
+					<GoogleMaps/>
 				</div>	
 			</div>
 		);

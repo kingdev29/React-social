@@ -13,20 +13,6 @@ import Geo from './Geo';
 
 //funciton to convert address to coordinates
 
-var geocoder;
-var map;
-function initialize() {
-	geocoder = new google.maps.Geocoder();
-	var latlng = new google.maps.LatLng(-34.397, 150.644);
-	var mapOptions = {
-		zoom: 8,
-		center: latlng
-	}
-
-	map = google.maps.Map()
-	console.log(map)
-}
-
 
 //end of geocoder
 let fieldValues = 
@@ -117,6 +103,7 @@ var App = React.createClass({
 				this.state.createEvent ?
 				<div>
 				<NavBar />
+
 				<CreateEvent fieldValues={fieldValues}
 							 eventList={eventList} 
 							 edit={this.edit.bind(this, null)}
@@ -126,7 +113,7 @@ var App = React.createClass({
 				:
 				<div>
 				<NavBar />
-
+				
 				<ViewEvents  eventList={eventList}
 							 edit={this.edit.bind(this, null)}
 							 deleteEvent={this.deleteEvent}

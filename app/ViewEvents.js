@@ -56,7 +56,6 @@ var ViewEvent = React.createClass({
 			<div>
 				<div className="container">
 					<div className="col">
-					<GoogleMaps/>
 					<Button onClick={this.edit}>Create Event</Button>
 					<br />
 					<SearchBar 
