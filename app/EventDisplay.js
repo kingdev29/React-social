@@ -50,7 +50,7 @@ var EventDisplay = React.createClass({
 				
 				</div>
 					{eventList}
-					<GoogleMaps/>
+					
 				</div>	
 			</div>
 		);
