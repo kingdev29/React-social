@@ -5,7 +5,7 @@ var MongoClient = require('mongodb').MongoClient;
 var app = express();
 var db;
 
-app.use(express.static('static'));
+app.use(express.static('public'));
 
 app.get('/api/bugs', function(req, res) {
   db.collection("bugs").find().toArray(function(err, docs) {
