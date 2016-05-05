@@ -13,6 +13,12 @@ app.get('/api/bugs', function(req, res) {
   });
 });
 
+app.get('/api/bugs', function(req, res) {
+  db.collection("bugs").find().toArray(function(err, docs) {
+    res.json(docs);
+  });
+});
+
 app.use(bodyParser.json());
 app.post('/api/bugs', function(req, res) {
   console.log("Req body:", req.body);
@@ -26,10 +32,9 @@ app.post('/api/bugs', function(req, res) {
 });
 
 MongoClient.connect('mongodb://localhost/bugsdb', function(err, dbConnection) {
-	console.log("connected to database")
- 	db = dbConnection;
- 	var server = app.listen(3000, function() {
-		var port = server.address().port;
-	  	console.log("Started server at port", port);
+  db = dbConnection;
+  var server = app.listen(3000, function() {
+    var port = server.address().port;
+    console.log("Started server at port", port);
   });
 });

@@ -9,6 +9,7 @@ import ViewEvents from './ViewEvents';
 import NavBar from './Nav';
 import FunButton from './FunButton';
 import CommentBox from './CommentBox';
+
 //import Geo from './Geo';
 
 //funciton to convert address to coordinates

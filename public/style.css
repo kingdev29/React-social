@@ -14,6 +14,7 @@ html, body, #app {
  margin-left: auto;
   width: 500px;
   height: 500px;
+  z-index: 10;
 }
 h1 {
     font-weight: 200;
@@ -307,10 +308,10 @@ h1 {
     display: block;
     position: absolute;
     z-index: 3;
-    background-color: #3498db;
+    background-color: #59ABE3;
 }
 .child-button {
-  background-color: #3498db;
+  background-color: #59ABE3;
 }
 .glyphicon-plus-sign {
   left: -50px;

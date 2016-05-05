@@ -6,11 +6,20 @@ import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 import EventDisplay from './EventDisplay';
 import Maps from './Maps';
+var $ = require('jquery');
 
 var HelloReact = React.createClass({
 
 	getInitialState: function() {
-		return { eventName: '', eventLocation: '', eventTime: '', eventDescription: ''};
+		return { eventName: '', eventLocation: '', eventTime: '', eventDescription: '', events: []};
+	},
+
+	componentDidMount: function() {
+		console.log("getting server data...")
+		$.ajax('/api/bugs').done(function(data) {
+			this.setState({events: event});
+		}.bind(this));
+		console.log(this.state.events)
 	},
 
 	update: function(e) {
@@ -33,7 +42,32 @@ var HelloReact = React.createClass({
 		
 	},
 
+	addEvent: function(event) {
+		
+		$.ajax({
+			type: 'POST',
+			url: '/api/bugs', 
+			contentType: 'application/json',
+			data: JSON.stringify(event),
+			success: function(data) {
+				var event = data;
+				console.log(this.state.events)
+				var eventModified = this.state.events;
+				//eventModified.push(event);
+				//this.setState({events: eventModified});
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.log("error adding bug:", err);
+			}
+		});
+	},
+
 	edit: function() {
+		var form = document.forms.eventAdd;
+		this.addEvent({owl:'Cool'});//passes to method in parent class
+		//return state of values as 0
+		console.log("creating event");
+		
 		this.setState(
 		{
 			createEvent: true
@@ -58,7 +92,7 @@ var HelloReact = React.createClass({
 					<div className="col-md-4 col-xs-12">
 					<div className="box">
 					<h2 className="create-title">Create Event</h2>
-						<form>
+						<form className="eventAdd">
 							
 							<input type='text' ref='eventName' defaultValue={this.props.fieldValues.eventName} placeholder="Event Name" className={'form-control'} /><br />
 							<Maps/>
