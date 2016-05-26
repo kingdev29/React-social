@@ -17,9 +17,10 @@ var HelloReact = React.createClass({
 	componentDidMount: function() {
 		console.log("getting server data...")
 		$.ajax('/api/bugs').done(function(data) {
-			this.setState({events: event});
+			var modif = this.state.events.concat(data);
+			this.setState({events: data});
 		}.bind(this));
-		console.log(this.state.events)
+		
 	},
 
 	update: function(e) {
@@ -81,7 +82,6 @@ var HelloReact = React.createClass({
 	},
 
 	render: function() {
-
 		return (
 			<div>
 				<div className='inputDisplay'>

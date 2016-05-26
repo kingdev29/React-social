@@ -320,3 +320,18 @@ h1 {
   color: white;
   font-size: xx-large;
 }
+/* Chat styles */
+.users{
+  float: right;
+  margin-right: 1.5em;
+}
+.messages {
+  width: 400px;
+  margin: 1em;
+  border: 1px solid black;
+  padding: 1em;
+}
+.message_form,
+.change_name_form{
+  padding: 1em;
+}

@@ -1,11 +1,10 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+
 
 var UserList = React.createClass({
-	render: function() {
+	render() {
 		return (
-			<div className="users">
-				<h3>Online Users</h3>
+			<div className='users'>
+				<h3> Online Users </h3>
 				<ul>
 					{
 						this.props.users.map((user, i) => {
@@ -21,5 +20,3 @@ var UserList = React.createClass({
 		);
 	}
 });
-
-export default UserList;
